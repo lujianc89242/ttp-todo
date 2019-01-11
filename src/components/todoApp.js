@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addToDo } from "../actions";
+import { addToDo, removeToDo } from "../actions";
 import Todo from "./Todo";
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,9 +10,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    addToDo: () => {
-        dispatch(addToDo("todo"));
+    addToDo: (todo) => {
+        dispatch(addToDo(todo));
+    },
+    removeToDo: () => {
+        dispatch(removeToDo());
     }
+   
   };
 };
 
