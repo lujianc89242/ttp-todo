@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         todo: [
           ...state.todo,
-          action.todo
+          {todo: action.todo, isCompleted: false}
         ]
       });
     case REMOVETODO:
