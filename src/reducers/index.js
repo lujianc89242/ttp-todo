@@ -9,20 +9,17 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADDTODO:       
+    case ADDTODO:
       return Object.assign({}, state, {
-        todo:[
-            ...state.todo,
-            action.todo
-        ]  
-      });
-    case REMOVETODO:
-    return Object.assign({}, state, {
-      todo:[
+        todo: [
           ...state.todo,
           action.todo
-      ]  
-    });
+        ]
+      });
+    case REMOVETODO:
+      this.setState({
+        isComplete: !this.state.isComplete
+      })
     default:
       return state;
   }

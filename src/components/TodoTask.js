@@ -14,14 +14,25 @@ class TodoTask extends Component {
         }
     }
 
+    onClickDelete = () => {
+        this.setState({
+            isComplete: !this.state.isComplete
+        })
+    }
+
     render() {
-        return (
-            <div>
-                <div className="container">
-                    {this.state.text} {this.state.date}
-                </div>
-            </div>
-        );
+        const removeButton = <button id="removeBtn" type="button" onClick={this.onClickDelete} >x</button>;
+        if (!this.state.isComplete) return (<div> {this.state.text} {this.state.date} {removeButton}</div>);
+        else return (<div></div>);
+        /*      
+              return (
+                  <div>
+                      <div className="container">
+                          {this.state.text} {this.state.date} {removeButton}
+                      </div>
+                  </div>
+              );
+              */
     }
 }
 
