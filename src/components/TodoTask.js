@@ -1,22 +1,25 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class TodoTask extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
+        let date = new Date();
+        let timestamp = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+
         this.state = {
-            text: '',
+            text: this.props.todo,
             isComplete: false,
-            date: ''
+            date: timestamp
         }
     }
 
-    render(){
-        const list = this.props.todo.map(todo => <li key={todo}>{todo}</li>);
-        
+    render() {
         return (
             <div>
-                {list}
+                <div className="container">
+                    {this.state.text} {this.state.date}
+                </div>
             </div>
         );
     }
